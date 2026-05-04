@@ -1,16 +1,16 @@
 <!-- Unit 12 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Standard Animation
-[  ] Custom Animation
-[  ] Include Three Images
+[ yes ] Two Interactive Drop-down Inputs
+[y  ] Standard Animation
+[ y ] Custom Animation
+[ 3/3 ] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
 [ no ] Feature 2 - Chain jQuery Methods
 [ no ] Feature 3 - .mouseover() & .mouseOut() Methods
-[ no ] Feature 4 - :hover Feature 
-[ no ] Feature 5 - Add an Additional Interactive Drop-down
+[ no ] Feature 4 - :hover Feature
+[ yes ] Feature 5 - Add an Additional Interactive Drop-down
 -->
 
 <!DOCTYPE html>
@@ -21,23 +21,43 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1>Lily's Quiz!</h1>
     <hr />
-    <!-- Movie Question -->
-    <form id="movie-form">
+    <!-- Song Question -->
+    <form id="song-form">
       <label>
-        🎥 What is my favorite movie?
-        <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+        🎶 What is my favorite song?
+        <select id="song-answer">
+          <option value="song1">Cassio (Jungle)</option>
+          <option value="song2">Now or Never (Kendrick Lamar)</option>
+          <option value="song3">Human (The Killers)</option>
+          <option value="song4">Walk Like an Egyptian (The Bangles)</option>
         </select>
       </label>
-      <button type="submit">Check Movie Answer</button>
+      <button type="submit">Check Song Answer</button>
     </form>
-    <div id="movie-result">
-      <p id="movie-text"></p>
+    <div id="song-result">
+      <p id="song-text"></p>
+      <img id="song-pic" width="200">
+    </div>
+    <hr />
+
+     <!-- Game Question -->
+    <form id="game-form">
+      <label>
+        👾 What is my favorite game?
+        <select id="game-answer">
+          <option value="game1">Animal Crossings</option>
+          <option value="game2">NYT Connections</option>
+          <option value="game3">Slither.io</option>
+          <option value="game4">Among Us</option>
+        </select>
+      </label>
+      <button type="submit">Check Game Answer</button>
+    </form>
+    <div id="game-result">
+      <p id="game-text"></p>
+      <img id="game-pic" width="200">
     </div>
     <hr />
     <!-- Book Question -->
@@ -45,33 +65,38 @@ Select ONE Additional Feature to Add
       <label>
         📖 What is my favorite book?
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1">Walden</option>
+          <option value="book2">Being and Nothingness</option>
+          <option value="book3">Tomorrow and Tomorrow and Tomorrow</option>
+          <option value="book4">Of Mice and Men</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
     </form>
     <div id="book-result">
       <p id="book-text"></p>
+      <img id="book-pic" width="200">
     </div>
+    <button id="cool">fun</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-      
-      //========================Movie Question jQuery Code
-      $("#movie-form").on("submit", function (event) {
+     
+      //========================Song Question jQuery Code
+      $("#song-form").on("submit", function (event) {
         event.preventDefault();
 
-        var $answer = $("#movie-answer");
+        var $answer = $("#song-answer");
         var answer = $answer.val();
 
-        if (answer === "movie1") {
-          $("#movie-text").text("YESSSS!");
-        } 
-        else {
-          $("#movie-text").text("Try Again!");
+        if (answer === "song3") {
+          $("#song-text").text("YESSSS!");
+           $("#song-pic").hide().attr("src", "https://i.scdn.co/image/ab67616d0000b273a43cd43ef4f3b2d5413b17f9").fadeIn();
         }
+        else {
+          $("#song-text").text("So close!");
+        }
+
+
       });
 
       //=======================Book Question jQuery Code
@@ -83,12 +108,44 @@ Select ONE Additional Feature to Add
 
         if (answer === "book1") {
           $("#book-text").text("YESSSS!");
-        } 
+          $("#book-pic").attr("src", "https://m.media-amazon.com/images/I/71P99VDL7cL._AC_UF1000,1000_QL80_.jpg");
+        }
         else {
           $("#book-text").text("Try Again!");
         }
       });
-      
+
+     
+      //=======================Game Question jQuery Code
+      $("#game-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#game-answer");
+        var answer = $answer.val();
+
+        if (answer === "game4") {
+          $("#game-text").text("YESSSS!");
+           $("#game-pic").attr("src", "https://www.nme.com/wp-content/uploads/2020/10/Among-Us-2-696x442.jpg");
+        }
+        else {
+          $("#game-text").text("Try Again!");
+        }
+      });
+
+
+
+      //button
+      $("#cool").click(function(){
+        $("#cool").animate({
+          width: "300px",
+          height: "300px",
+          marginLeft: "200px",
+          marginTop: "100px",
+          rotate: "75deg",
+        })
+      });
+
+     
     </script>
   </body>
 
